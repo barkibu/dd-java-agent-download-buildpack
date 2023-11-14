@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if test -f "$2/dd-java-agent.jar"; then
+    echo "-----> Datadog Agent found in cache. Skipping download."
+else
+    echo "-----> Missing Datadog Agent. Downloading..."
+    wget -O $2/dd-java-agent.jar https://dtdg.co/latest-java-tracer
+fi
+
+cp $2/dd-java-agent.jar $1/dd-java-agent.jar
